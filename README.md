@@ -10,7 +10,8 @@ Implementation of SQLite for Blockland
 
 `sqlite_close()` - Closes the opened database
 
-## Example
+## Examples
+#### Basic table creation, insertion, and query
 ```
 sqlite_open("config/server/Players.db");
 sqlite_query("CREATE TABLE Players(ID INT PRIMARY KEY NOT NULL, BLID INT NOT NULL, Name TEXT NOT NULL);");
@@ -18,4 +19,32 @@ sqlite_query("INSERT INTO Players (ID, BLID, Name) VALUES (1, 25351, 'Eagle517')
 
 sqlite_query("SELECT * FROM Players WHERE BLID=25351");
 sqlite_getResult(); -> "1\t25351\tEagle517"
+```
+
+#### Looping through a query result
+
+| ID            | BLID          | Name     |
+|:-------------:|:-------------:|:--------:|
+| 1             | 25351         | Eagle517 |
+| 2             | 0             | Badspot  |
+| 3             | 103           | Rotondo  |
+
+Assume that this table, called Players, is located in config/server/Players.db
+```
+sqlite_open("config/server/Players.db");
+sqlite_query("SELECT * FROM Players");
+
+while((%row = sqlite_getResult()) !$= "")
+{
+    echo(%row);
+}
+
+sqlite_close();
+```
+
+The above code will produce the following output
+```
+1\t25351\tEagle517
+2\t0\tBadspot
+3\t103\tRotondo
 ```
