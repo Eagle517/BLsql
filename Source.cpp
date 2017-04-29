@@ -70,6 +70,11 @@ const char *sqlite_getResult(SimObject *obj, int argc, const char *argv[])
 	return ret;
 }
 
+int sqlite_getResultCount(SimObject *obj, int argc, const char *argv[])
+{
+	return queryResults.size();
+}
+
 bool sqlite_close(SimObject *obj, int argc, const char *argv[])
 {
 	int rc = sqlite3_close(db);
@@ -96,6 +101,9 @@ DWORD Init(LPVOID args)
 
 	ConsoleFunction(NULL, "sqlite_getResult", sqlite_getResult,
 		"string sqlite_getResult() - Returns the result of a query one row at a time", 1, 1);
+
+	ConsoleFunction(NULL, "sqlite_getResultCount", sqlite_getResultCount,
+		"int sqlite_getResultCount() - Returns the number of results still available", 1, 1);
 
 	ConsoleFunction(NULL, "sqlite_close", sqlite_close,
 		"bool sqlite_close() - Closes the currently opened database", 1, 1);
