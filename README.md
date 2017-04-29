@@ -8,6 +8,8 @@ Implementation of SQLite for Blockland
 
 `sqlite_getResult()` - Returns one row at a time with columns seperated by a tab character
 
+`sqlite_getResultCount()` - Returns the number of available results from a query
+
 `sqlite_close()` - Closes the opened database
 
 ## Examples
