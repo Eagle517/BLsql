@@ -17,7 +17,7 @@ Implementation of SQLite for Blockland
 ```
 sqlite_open("config/server/Players.db");
 sqlite_query("CREATE TABLE Players(ID INT PRIMARY KEY NOT NULL, BLID INT NOT NULL, Name TEXT NOT NULL);");
-sqlite_query("INSERT INTO Players (ID, BLID, Name) VALUES (1, 25351, 'Eagle517');
+sqlite_query("INSERT INTO Players (ID, BLID, Name) VALUES (1, 25351, 'Eagle517');");
 
 sqlite_query("SELECT * FROM Players WHERE BLID=25351");
 sqlite_getResult(); -> "1\t25351\tEagle517"
