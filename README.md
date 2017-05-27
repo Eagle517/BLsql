@@ -50,3 +50,12 @@ The above code will produce the following output
 2\t0\tBadspot
 3\t103\tRotondo
 ```
+
+#### Speeding up multiple queries
+In some cases, you may need to update multiple rows of a table or insert multiple rows at the same time. Normally, this will result in Blockland freezing for a few moments. To fix this, wrap your queries with the following two statements.
+```
+sqlite_query("BEGIN TRANSACTION");
+//your queries
+sqlite_query("END TRANSACTION");
+```
+This will result in a significant increase in speed.
