@@ -5,6 +5,7 @@ Implementation of SQLite for Blockland
 `sqlite_open(database)` - Opens a .db file to perform SQL commands on
 
 `sqlite_query(statement [, return [, file]])` - Performs a SQL command on the opened database
+
 If return is true, it will return the query result in a string with rows seperated by a newline character.
 If file is specified, it will query the database in that file.
 
