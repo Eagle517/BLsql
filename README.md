@@ -6,10 +6,10 @@ Implementation of SQLite for Blockland
 
 `sqlite_query(statement [, return [, file]])` - Performs a SQL command on the opened database
 
-If return is true, it will return the query result in a string with rows seperated by a newline character.
+If return is true, it will return the query result in a string with rows separated by a newline character.
 If file is specified, it will query the database in that file.
 
-`sqlite_getResult()` - Returns one row at a time with columns seperated by a tab character
+`sqlite_getResult()` - Returns one row at a time with columns separated by a tab character
 
 `sqlite_getResultCount()` - Returns the number of available results from a query
 
